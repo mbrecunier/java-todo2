@@ -38,7 +38,11 @@ public class Task {
   }
 
   public static Task find(int id) {
-    return instances.get(id-1);
+    try {
+      return instances.get(id-1);
+    } catch (IndexOutOfBoundsException e) {
+      return null;
+    }
   }
 
   public static void clear(){
