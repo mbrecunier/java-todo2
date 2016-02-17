@@ -3,7 +3,7 @@ import org.junit.ClassRule;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
-
+import static org.fluentlenium.core.filter.FilterConstructor.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class AppTest extends FluentTest {
@@ -21,14 +21,14 @@ public class AppTest extends FluentTest {
     assertThat(pageSource()).contains("Todo list!");
   }
 
-  // @Test
-  // public void taskIsCreatedTest() {
-  //   goTo("http://localhost:4567/");
-  //   **click("a", withText("Add a new task"));**
-  //   fill("#description").with("Mow the lawn");
-  //   submit(".btn");
-  //   assertThat(pageSource()).contains("Your task has been saved.");
-  // }
+  @Test
+  public void taskIsCreatedTest() {
+    goTo("http://localhost:4567/");
+    click("a", withText("Add a new task"));
+    fill("#description").with("Mow the lawn");
+    submit(".btn");
+    assertThat(pageSource()).contains("Your task has been saved.");
+  }
   //
   // @Test
   // public void taskIsDisplayedTest() {
