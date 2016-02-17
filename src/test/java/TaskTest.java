@@ -5,6 +5,9 @@ import java.util.ArrayList;
 
 public class TaskTest {
 
+  @Rule
+  public ClearRule clearRule = new ClearRule();
+
   @Test
   public void task_instantiatesCorrectly_true() {
     Task myTask = new Task("Mow the lawn");
@@ -43,18 +46,18 @@ public class TaskTest {
     assertEquals(Task.all().size(), myTask.getId());
   }
 
-  // @Test
-  // public void find_returnsTaskWithSameId_secondTask() {
-  //   Task firstTask = new Task("Mow the lawn");
-  //   Task secondTask = new Task("Buy groceries");
-  //   assertEquals(Task.find(secondTask.getId()), secondTask);
-  // }
-  //
-  // @Test
-  // public void find_returnsNullWhenNoTaskFound_null() {
-  //   assertTrue(Task.find(999) == null);
-  // }
-  //
+  @Test
+  public void find_returnsTaskWithSameId_secondTask() {
+    Task firstTask = new Task("Mow the lawn");
+    Task secondTask = new Task("Buy groceries");
+    assertEquals(Task.find(secondTask.getId()), secondTask);
+  }
+
+  @Test
+  public void find_returnsNullWhenNoTaskFound_null() {
+    assertTrue(Task.find(999) == null);
+  }
+
   // @Test
   // public void clear_emptiesAllTasksFromArrayList() {
   //   Task myTask = new Task("Mow the lawn");
