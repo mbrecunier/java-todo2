@@ -34,20 +34,13 @@ public class App {
       model.put("template", "templates/tasks.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
-    // post("/success", (request, response) -> {
-    //
-    //
-    //   //call business logic functions here
-    //   String result = textInput;
-    //
-    //   HashMap model = new HashMap();
-    //   model.put("template", "templates/success.vtl");
-    //   model.put("result", String.format(result));
-    //   return new ModelAndView(model, layout);
-    // }, new VelocityTemplateEngine());
-    //   //additional pages would go here
+
+    get("/tasks/:id", (request, response) -> {
+      Task task = Task.find(Integer.parseInt(request.params(":id")));
+      HashMap<String, Object> model = new HashMap<String, Object>();
+      model.put("task", task);
+      model.put("template", "templates/task.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
   }
-
-  //public static 'Returntype' 'FuncName' (Paramtype param) {}  //first business logic function
-
 }

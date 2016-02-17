@@ -1,0 +1,8 @@
+#if ($task)
+ <h1>$task.getDescription()</h1>
+#else
+<h1> Task not found </h1>
+#end
+
+<p><a href="/tasks">View tasks</a></p>
+<p><a href="/tasks/new">Add New Task</a></p>
