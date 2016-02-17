@@ -58,10 +58,10 @@ public class TaskTest {
     assertTrue(Task.find(999) == null);
   }
 
-  // @Test
-  // public void clear_emptiesAllTasksFromArrayList() {
-  //   Task myTask = new Task("Mow the lawn");
-  //   Task.clear();
-  //   assertEquals(Task.all().size(), 0);
-  // }
+  @Test
+  public void clear_emptiesAllTasksFromArrayList() {
+    Task myTask = new Task("Mow the lawn");
+    Task.clear();
+    assertEquals(Task.all().size(), 0);
+  }
 }
