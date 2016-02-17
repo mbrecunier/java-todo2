@@ -10,7 +10,7 @@ public class App {
 
     get("/", (request, response) -> {
       HashMap model = new HashMap();
-      model.put("template", "templates/input.vtl");
+      model.put("template", "templates/index.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
@@ -21,7 +21,7 @@ public class App {
       String result = textInput;
 
       HashMap model = new HashMap();
-      model.put("template", "templates/output.vtl");
+      model.put("template", "templates/success.vtl");
       model.put("result", String.format(result));
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
