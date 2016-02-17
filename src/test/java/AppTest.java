@@ -29,15 +29,15 @@ public class AppTest extends FluentTest {
     submit(".btn");
     assertThat(pageSource()).contains("Your task has been saved.");
   }
-  //
-  // @Test
-  // public void taskIsDisplayedTest() {
-  //   **goTo("http://localhost:4567/tasks/new");**
-  //   fill("#description").with("Mow the lawn");
-  //   submit(".btn");
-  //   **click("a", withText("View tasks"));**
-  //   assertThat(pageSource()).contains("Mow the lawn");
-  // }
+
+  @Test
+  public void taskIsDisplayedTest() {
+    goTo("http://localhost:4567/tasks/new");
+    fill("#description").with("Mow the lawn");
+    submit(".btn"); //load success.vtl
+    click("a", withText("View tasks"));
+    assertThat(pageSource()).contains("Mow the lawn");
+  }
   //
   // @Test
   // public void multipleTasksAreDisplayedTest() {

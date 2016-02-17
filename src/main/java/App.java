@@ -22,9 +22,16 @@ public class App {
 
     post("/tasks", (request, response) -> {
       HashMap<String, Object> model = new HashMap<String, Object>();
+      model.put("template", "templates/success.vtl");
       String description = request.queryParams("description");
       Task newTask = new Task(description);
-      model.put("template", "templates/success.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
+    get("/tasks", (request, response) -> {
+      HashMap<String, Object> model = new HashMap<String, Object>();
+      model.put("tasks", Task.all());
+      model.put("template", "templates/tasks.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
     // post("/success", (request, response) -> {
